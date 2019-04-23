@@ -1,10 +1,12 @@
+///
+// library note_defn;
+
 /// Enumeration of all the possible states for a Note Object
 ///
 /// active: The note is still being used
 /// archived: The note is read only until its un-archived
 /// deleted: The note is only viewable to the user in the "trash" view for some time.
 enum NoteStatus { active, archived, deleted }
-
 
 /// Enumeration of all the possible types for a Note Object
 ///
@@ -30,7 +32,8 @@ class Note {
   /// Used to identify who owns this note
   User owner;
 
-  /// [title] variable is set to an empty string to prevent it from being null
+  /// [title] variable is set to an empty string to pr
+  /// event it from being null
   String title = '';
 
   /// [content] variable is set to an empty string by default to prevent it from being null
@@ -40,11 +43,12 @@ class Note {
   /// Default constructor requires a unique ID
   Note(this.id, {this.noteType: NoteType.BasicText});
 
-  Note.basic(id) : Note(id, noteType: NoteType.BasicText);
-  Note.markdown(id);
-  Note.list(id);
+  Note.basic(id) : this(id, noteType: NoteType.BasicText);
+  Note.markdown(id) : this(id, noteType: NoteType.Markdown);
+  Note.list(id) : this(id, noteType: NoteType.List);
 }
 
+// Main function for running tests temporarily
 main(List<String> args) {
   Note(10, noteType: NoteType.BasicText);
 }
