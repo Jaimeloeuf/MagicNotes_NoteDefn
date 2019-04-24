@@ -1,2 +1,0 @@
-/// 
-library note_defn;
